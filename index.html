@@ -44,11 +44,8 @@
     const frame = document.getElementById('proxyFrame');
     const info = document.getElementById('info');
 
-    // 複数のプロキシAPI候補
-    const PROXY_APIS = [
-      'https://api.allorigins.win/raw?url=',
-      'https://thingproxy.freeboard.io/fetch/'
-    ];
+    // 自分専用の Cloudflare Worker URL
+    const PROXY_API = 'https://modzexe.kdkfkdk766.workers.dev/?url=';
 
     function openSite(target) {
       let url = target.trim();
@@ -66,8 +63,8 @@
       info.style.display = 'none';
       frame.style.display = 'block';
       
-      // 1番目のプロキシAPIを使用
-      frame.src = PROXY_APIS[0] + encodeURIComponent(url);
+      // 自分専用Worker経由でアクセス
+      frame.src = PROXY_API + encodeURIComponent(url);
     }
 
     form.addEventListener('submit', (e) => {
