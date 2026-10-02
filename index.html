@@ -54,7 +54,7 @@
         if (url.includes('.') && !url.includes(' ')) {
           url = 'https://' + url;
         } else {
-          url = 'https://html.duckduckgo.com/html/?q=' + encodeURIComponent(url);
+          url = 'https://www.mojeek.com/search?q=' + encodeURIComponent(url);
         }
       }
 
@@ -62,7 +62,7 @@
 
       info.style.display = 'none';
       frame.style.display = 'block';
-      
+
       // 自分専用Worker経由でアクセス
       frame.src = PROXY_API + encodeURIComponent(url);
     }
