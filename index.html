@@ -44,7 +44,11 @@
     const frame = document.getElementById('proxyFrame');
     const info = document.getElementById('info');
 
-    const PROXY_API = 'https://corsproxy.io/?';
+    // 複数のプロキシAPI候補
+    const PROXY_APIS = [
+      'https://api.allorigins.win/raw?url=',
+      'https://thingproxy.freeboard.io/fetch/'
+    ];
 
     function openSite(target) {
       let url = target.trim();
@@ -61,7 +65,9 @@
 
       info.style.display = 'none';
       frame.style.display = 'block';
-      frame.src = PROXY_API + encodeURIComponent(url);
+      
+      // 1番目のプロキシAPIを使用
+      frame.src = PROXY_APIS[0] + encodeURIComponent(url);
     }
 
     form.addEventListener('submit', (e) => {
